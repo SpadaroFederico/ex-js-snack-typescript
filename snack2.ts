@@ -32,4 +32,23 @@ const mario: Dipendente = {
   contratto: "indeterminato"
 };
 
-// mario.emailAziendale = "nuova@azienda.com"; ❌ Errore: proprietà readonly
+type Developer = Dipendente & {
+  livelloEsperienza: "Junior" | "Mid" | "Senior";
+  linguaggi?: string[];
+  certificazioni: string[]; 
+};
+
+type ProjectManager = Dipendente & {
+  teamSize: number | null;
+  budgetGestito?: number; 
+  stakeholderPrincipali: string[];
+};
+
+type Team = {
+  nome: string;
+  progettoAttuale: string | null;
+  budget: number;
+  membri: [ProjectManager, ...Developer[]]; 
+};
+
+
